@@ -17,8 +17,7 @@
 .imgContainer {
     width: 100px; 
     height: 100px; 
-    position: relative;
-    margin-bottom: 50px;  
+    position: relative; 
    
 
 }
@@ -27,6 +26,7 @@
     width: 100%; 
     border-spacing: 20px; 
     text-align: center; 
+    margin: 0px 0px 10rem 0px; 
 }
 
 .name {
@@ -74,6 +74,7 @@
     transition: all; 
     color: white; 
     border: none; 
+    cursor:not-allowed;
     
 }
 
@@ -86,3 +87,49 @@
     background-color: #ce3008; 
 
 }
+
+.row:last-child {
+    display: flex; 
+    justify-content: space-around; 
+    width: 80%; 
+
+}
+
+.done {
+    display: flex; 
+    flex-direction:column; 
+    align-items: center; 
+
+}
+
+.inProgress {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    animation: inProgress 1s ease infinite alternate; 
+
+}
+
+@keyframes inProgress {
+    from {
+        opacity: 0; 
+    }
+
+    to {
+        opacity: 1; 
+
+    }
+}
+
+.undone {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    opacity: 0.3; 
+}
+
+.undone .checkedIcon, 
+.inProgress .checkedIcon {
+    display: none; 
+}
+

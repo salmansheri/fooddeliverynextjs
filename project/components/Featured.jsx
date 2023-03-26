@@ -31,7 +31,7 @@ const Featured = () => {
       <div className={styles.wrapper} style={{transform: `translateX(${index})`}}>
         <div className={styles.imgContainer}>
           {images.map((image, i) => (
-            <Image key={i} src={image} width={10500} height={900} objectFit="contain"/>
+            <Image key={i} src={image} width={10500} height={900} style={{objectFit: "cover"}}/>
           ))}
         </div>
       </div>
