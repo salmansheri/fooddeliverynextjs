@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Featured from '@/components/Featured'
 import PizzaList from '@/components/PizzaList'; 
+import {useSelector} from 'react-redux'; 
 
 import axios from 'axios'
 
@@ -12,6 +13,7 @@ import axios from 'axios'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home({products}) {
+  const user = useSelector(state => state.user)
  
 
 
