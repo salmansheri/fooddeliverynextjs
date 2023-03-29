@@ -10,9 +10,16 @@ export default async function handler(req, res) {
     if(method === "GET") {
         try {
             const order = await orderModel.findById({_id: id}); 
-            res.status(201).json(order)
-            console.log("successfull")
 
+            if(order) {
+                res.status(201).json(order)
+                console.log("successfull")
+    
+
+            } else {
+                res.status(200).json("no user found")
+            }
+         
 
              
         } catch(err) {
@@ -23,6 +30,20 @@ export default async function handler(req, res) {
     } 
 
    if(method === "PUT") {
+    try {
+        const order = await orderModel.findByIdAndUpdate({_id: id}, req.body, {
+            new:true
+        })
+        res.status(200).json(order); 
+
+    } catch(err) {
+        
+
+    }
+
+   
+
+    
 
    }
 

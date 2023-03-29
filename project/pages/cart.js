@@ -2,11 +2,33 @@ import React from 'react'
 import styles from '@/styles/Cart.module.css';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';   
+import axios from 'axios';
+import {useRouter } from 'next/router';
+import { reset } from '@/redux/cartSlice';
 
 
 const cart = () => {
     const dispatch = useDispatch()
-    const cart = useSelector(state => state.cart)
+    const cart = useSelector(state => state.cart); 
+    const router = useRouter(); 
+
+
+    const createOrder = async (data) => {
+        try {
+            const response = await axios.post("http://localhost:3000/api/orders", data)
+
+            const data = response.data;
+            console.log(data) 
+
+           response.status === 201 && router.push(`/order/${data._id}`)
+           dispatch(reset()); 
+
+
+        } catch(err) {
+            console.log(err)
+        }
+
+    }
   return (
     <div className={styles.container}>
         <div className={styles.left}>

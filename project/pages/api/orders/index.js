@@ -15,7 +15,7 @@ const handler = async (req, res) => {
             console.log(err)
         }
 
-    }
+    } 
 
     if(method === "POST") {
         try {

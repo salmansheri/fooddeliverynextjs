@@ -31,14 +31,14 @@ const Featured = () => {
       showStatus={true}
       showIndicators={true}
       interval={3000}
-      showThumbs={true}
+      showThumbs={false}
       showArrows={true}
      >
     
           {images.map((image, i) => (
-            <div>
+            <div key={image} >
             <Image
-              key={i}
+              
               src={image}
               width={10000}
               height={900}
